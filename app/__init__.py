@@ -5,7 +5,9 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-       app.config['SECRET_KEY'] = "hardcoded-dev-secret-please-change"
+      import os
+    app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET', 'dev-fallback-secret')
+
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 
     db.init_app(app)
