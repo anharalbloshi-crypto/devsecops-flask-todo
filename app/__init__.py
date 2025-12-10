@@ -5,7 +5,7 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = "dev-key"
+       app.config['SECRET_KEY'] = "hardcoded-dev-secret-please-change"
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 
     db.init_app(app)
@@ -20,3 +20,5 @@ def create_app():
         db.create_all()
 
     return app
+
+
